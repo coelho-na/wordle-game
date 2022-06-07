@@ -1,6 +1,6 @@
 import React from "react";
 
-const Row = ({ guess }) => {
+const Row = ({ guess, currentGuess }) => {
   if (guess) {
     return (
       <div className="row past">
@@ -8,6 +8,22 @@ const Row = ({ guess }) => {
           <div key={index} className={letter.color}>
             {letter.key}
           </div>
+        ))}
+      </div>
+    );
+  }
+
+  if (currentGuess) {
+    let letters = currentGuess.split("");
+    return (
+      <div className="row current">
+        {letters.map((letter, index) => (
+          <div className="filled" key={index}>
+            {letter}
+          </div>
+        ))}
+        {[...Array(5 - letters.length)].map((_, index) => (
+          <div key={index}></div>
         ))}
       </div>
     );
