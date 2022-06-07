@@ -16,13 +16,13 @@ function App() {
     );
     const data = await response.json();
     const randomSolution = data[Math.floor(Math.random() * data.length)];
-    console.log(randomSolution);
+    setSolution(randomSolution.word);
   };
 
   return (
     <div className="App">
       <h1>Wordle</h1>
-      {<Wordle solution={solution} />}
+      {solution && <Wordle solution={solution} />}
     </div>
   );
 }
