@@ -3,9 +3,6 @@ import React from "react";
 const Modal = ({ isCorrect, turn, solution, setShowModal }) => {
   return (
     <div className="modal">
-      <span className="modal__close" onClick={() => window.location.reload()}>
-        X
-      </span>
       {isCorrect && (
         <div>
           <h1>Você venceu!🎉🎉 </h1>
